@@ -27,11 +27,11 @@ export const getDb = async () => {
   const openTheDB = await openDB(database, 1);
   const transaction1 = openTheDB.transaction(database, 'readonly');
   const theStore = transaction1.objectStore(database);
-  request = theStore.put({ id: 1, value: content });
-  result = await request;
-  console.log('🚀 - data saved to the database', result.value);
-  request = store.get(1);
-  result = await request;
+  // request = theStore.put({ id: 1, value: content });
+  // result = await request;
+  // console.log('🚀 - data saved to the database', result.value);
+  const request = theStore.get(1);
+  const result = await request;
   result
     ? console.log('🚀 - data retrieved from the database', result.value)
     : console.log('🚀 - data not found in the database');
